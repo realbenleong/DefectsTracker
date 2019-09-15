@@ -1,3 +1,15 @@
-<app-nav></app-nav>
-<app-home></app-home>
+<app-nav    (registerIsShownEvent)="registerIsShown=$event" 
+            (listIsShownEvent)="listIsShown=$event">
+</app-nav>
+<div *ngIf="registerIsShown; then thenBlock; else elseBlock"></div>
+<ng-template #thenBlock>
+    <div class="homeClass">
+        <app-home></app-home>
+    </div>
+</ng-template>
+<ng-template #elseBlock>
+    <app-lotlist></app-lotlist>
+</ng-template>
+
+
 

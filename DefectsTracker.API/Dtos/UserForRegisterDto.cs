@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace DefectsTracker.API.Dtos
@@ -6,8 +7,9 @@ namespace DefectsTracker.API.Dtos
     {
         [Required]
         public string Username { get; set; }
-        [Required]
-        [StringLength(8, MinimumLength = 4, ErrorMessage = "Password must be between 4 and 8")]
         public string Password { get; set; }
+        public string LotId { get; set; }
+        public string ReasonOnHold { get; set; }
+        public DateTime TimeOfEntry { get; set; }
     }
 }

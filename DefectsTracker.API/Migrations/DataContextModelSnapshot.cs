@@ -21,9 +21,11 @@ namespace DefectsTracker.API.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<byte[]>("PasswordHash");
+                    b.Property<string>("LotId");
 
-                    b.Property<byte[]>("PasswordSalt");
+                    b.Property<string>("ReasonOnHold");
+
+                    b.Property<DateTime>("TimeOfEntry");
 
                     b.Property<string>("Username");
 

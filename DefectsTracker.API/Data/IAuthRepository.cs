@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using DefectsTracker.API.Models;
 
@@ -5,8 +6,6 @@ namespace DefectsTracker.API.Data
 {
     public interface IAuthRepository
     {
-         Task<User> Register(User user, string password);
-         Task<User> Login(string username, string password);
-         Task<bool> UserExists(string username);
+         Task<User> Register(User user, string lotid, string reasonforhold, DateTime timeofentry);
     }
 }

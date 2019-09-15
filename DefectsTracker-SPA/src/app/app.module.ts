@@ -8,13 +8,15 @@ import { NavComponent } from './nav/nav.component';
 import { AuthService } from './_services/auth.service';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
+import { LotlistComponent } from './lotlist/lotlist.component';
 
 @NgModule({
    declarations: [
       AppComponent,
       NavComponent,
       HomeComponent,
-      RegisterComponent
+      RegisterComponent,
+      LotlistComponent
    ],
    imports: [
       BrowserModule,

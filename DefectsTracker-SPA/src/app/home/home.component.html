@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <div style="text-align: center">
-    <h1>Defects Tracker</h1>
-    <p class="lead">Sign up to access the application.</p>
+    <h1>Lots on Hold</h1>
+    <p class="lead">Insert new record here.</p>
     <div class="text-center">
     </div>
   </div>
@@ -9,7 +9,7 @@
   <div *ngIf="registerMode" class="container">
     <div class="row justify-content-center">
       <div class="col-4">
-        <app-register [valuesFromHome]="values"></app-register>
+        <app-register [valuesFromHome]="values" (cancelRegister)="cancelRegisterMode($event)"></app-register>
       </div>
     </div>
   </div>

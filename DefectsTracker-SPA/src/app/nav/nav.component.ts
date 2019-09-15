@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { AlertifyService } from '../_services/alertify.service';
 
@@ -9,30 +9,28 @@ import { AlertifyService } from '../_services/alertify.service';
 })
 export class NavComponent implements OnInit {
   model: any = {};
+  @Output() registerIsShownEvent = new EventEmitter();
+  @Output() listIsShownEvent = new EventEmitter();
 
   constructor(private authService: AuthService, private alertify: AlertifyService) { }
 
   ngOnInit() {
   }
 
-  login() {
-    this.authService.login(this.model).subscribe(next => {
-      console.log('Logged in successfully.');
-      this.alertify.success('Logged in successfully.');
-    }, error => {
-      console.log('Failed to login.');
-      this.alertify.error('Failed to login.');
-    });
+  activateRegister() {
+    this.registerIsShownEvent.emit(true);
+    this.listIsShownEvent.emit(false);
+    // this.registerIsShown = true;
+    // this.listIsShown = false;
+    console.log('Register visible!');
   }
 
-  loggedIn() {
-    const token = localStorage.getItem('token');
-    return !!token;
+  activateList() {
+    this.registerIsShownEvent.emit(false);
+    this.listIsShownEvent.emit(true);
+    // this.listIsShown = true;
+    // this.registerIsShown = false;
+    console.log('List visible!');
   }
 
-  logout() {
-    localStorage.removeItem('token');
-    console.log('logged out');
-    this.alertify.message('Logged out.');
-  }
 }
